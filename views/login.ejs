@@ -1,0 +1,59 @@
+<%- include('Header.ejs') %>
+<body>
+  <div class="container-scroller">
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+      </div>
+    </nav>
+    <div class="container-fluid page-body-wrapper">
+      <div class="main-panel">        
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-8 grid-margin stretch-card">
+              <div class="card align-center">
+                <div class="card-body">
+
+                  <% if(message.length > 0){ %>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <%= message %>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  <% } %>
+
+                  <% if(typeof alert != 'undefined'){ %>
+                    <% alert.forEach(function(error){ %>
+                      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <%= error.msg %>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    <% }) %>
+                  <% } %>
+                  
+                  <h4 class="card-title">Login form</h4>
+                  <p class="card-description">
+                    Login form
+                  </p>
+                  <form class="forms-sample" action="/login" method="POST">
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Email</label>
+                      <input type="text" class="form-control" name="email" id="exampleInputUsername1" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <input type="submit"  name="submit" value="submit" class="btn btn-primary me-2"/>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
